@@ -1,0 +1,144 @@
+﻿ <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="./app.json">
+
+    <meta name="description"
+          content="Palleseddel">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Palleseddel</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <script>
+        // does the browser support service workers?
+        if ('serviceWorker' in navigator) {
+        // then register our service worker
+        navigator.serviceWorker.register('./sw.js')
+            .then(function (reg) {
+            // display a success message
+            console.log(`Service Worker Registration (Scope: ${reg.scope})`);
+            })
+            .catch(function (error) {
+            // display an error message
+            console.log(`Service Worker Error (${error})`);
+            });
+        } else {
+        // happens when the app isn't served over a TLS connection (HTTPS)
+        console.warn('Service Worker not available');
+        }
+    </script>
+
+</head>
+<body style="margin: 0;" onresize="onresize()">
+    <div id="divBody" class ="standardfont">
+        <div id="divBodyHeader">
+            <div id="divHeader">
+                Palleseddel
+            </div>
+        </div>
+        <div id="divBodyBody">
+            <div id="divEurpalle11" class="section">
+                <div id="divEurpalle11Text" class="divElementText">
+                    1/1 EUR Palle
+                </div>
+                <div id="divEurpalle11Text2" class="divElementText2">
+                    Skriv antal
+                </div>
+                <div id="divEurpalle11Number" class="divElementNumber">
+                    <label for="numEurpalle11"></label>
+                    <input type="number" id="numEurpalle11" name="numEurpalle11"  class="elementNumberField standardfont" min="0" max="99999" value="" >
+                </div>
+            </div>
+            <div id="divEurpalle12" class="section">
+                <div id="dviEurpalle12Text" class="divElementText">
+                    1/2 EUR Palle
+                </div>
+                <div id="divEurpalle12Text2" class="divElementText2">
+                    Skriv antal
+                </div>
+                <div id="divEurpalle12Number" class="divElementNumber">
+                    <label for="numEurpalle12"></label>
+                    <input type="number" id="numEurpalle12" name="numEurpalle12" class="elementNumberField standardfont" min="0" max="99999" value="" >
+                </div>
+            </div>
+            <div id="divEurpalle14" class="section">
+                <div id="dviEurpalle14Text" class="divElementText">
+                    1/4 EUR Palle
+                </div>
+                <div id="divEurpalle14Text2" class="divElementText2">
+                    Skriv antal
+                </div>
+                <div id="divEurpalle14Number" class="divElementNumber">
+                    <label for="numEurpalle14"></label>
+                    <input type="number" id="numEurpalle14" name="numEurpalle14"  class="elementNumberField standardfont" min="0" max="99999" value="" >
+                </div>
+            </div>
+            <div id="divAndet" class="section">
+                <div id="dviAndetText" class="divElementText">
+                    Andet
+                </div>
+                <div id="divAndetText2" class="divElementText2">
+                    Vælg kun ved andet
+                </div>
+                <div id="divAndetDropdown" class="dropdown">
+                    <button id="buttonAndet" onclick="buttonAndetClick()" class="dropbtn standardfont">Vælg fra liste...</button>
+                    <div id="andetDropdown" class="dropdown-content">
+                        <div class="divDropelement"><button class="dropelement dropelement-border standardfont" onclick="onSelectAndet('Vælg fra liste...');">Vælg fra liste...</button></div>
+                        <div class="divDropelement"><button class="dropelement dropelement-border standardfont" onclick="onSelectAndet('Plastpalle');">Plastpalle</button></div>
+                        <div class="divDropelement"><button class="dropelement dropelement-border standardfont" onclick="onSelectAndet('Bur (stor)');">Bur (stor)</button></div>
+                        <div class="divDropelement"><button class="dropelement dropelement-border standardfont" onclick="onSelectAndet('Bur (lille)');">Bur (lille)</button></div>
+                        <div class="divDropelement"><button class="dropelement dropelement-last-border standardfont" onclick="onSelectAndet('Stålkar');">Stålkar</button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="divKommentar" class="section">
+                <div id="divKommentarText" class="divElementText">
+                    Kommentar
+                </div>
+                <div id="divKommentarText2" class="divElementText2">
+                    Skriv evt. kommentar her...
+                </div>
+                <div id="divKommentarTextField" class="divElementTextField">
+                    <textarea id="textFieldKommentar" name="textFieldKommentar" value="" rows="4" class="elementTextField standardfont"></textarea>
+                </div>
+            </div>
+            <div id="divSignature" class="section">
+                <div id="divSignatureText" class="divElementText">
+                    Underskrift
+                </div>
+                <div id="divSignatureText2" class="divElementText2">
+                    Skriv under her...
+                </div>
+                <div id="divCanvas">
+                    <canvas id="canvas" width="1200" height="400" style="width:600px;height:200px" />
+                </div>
+            </div>
+            <div id="divSend">
+                <button id="buttonSend" type="button"  class="standardbutton" onclick="onSend();"><span>Send</span></button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

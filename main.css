@@ -1,0 +1,212 @@
+﻿#body {
+    background-color: #f5f5f5;
+    margin: 0;
+}
+.standardfont {
+    font-family: Open Sans,sans-serif;
+    color: #2d2d2d;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-kerning: normal;
+}
+
+.standardbutton {
+    border-radius: 20px;
+    background-color: #11c4e0;
+    border-color: #11c4e0;
+    color: white;
+    border-style: solid;
+    font-size: 16px;
+}
+
+#divBody {
+    background-color: #f5f5f5;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+#divBodyHeader{
+    padding-bottom: 5px;
+}
+
+#divHeader {
+    padding: 20px 0px 0px 0px ;
+    text-align: center;
+    font-size: 30px;
+}
+
+#divBodyBody {
+    padding: 0;
+}
+
+.section {
+    margin-top: 24px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 310px;
+}
+
+.divElementText {
+    font-size: 20px;
+}
+
+.divElementText2 {
+    margin-top: 5px;
+    padding-left: 0px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.divElementNumber {
+    margin-top: 5px;
+    padding-left: 0px;
+}
+
+.divElementTextField {
+    margin-top: 5px;
+    padding-left: 0px;
+}
+
+#divAndetDropdown {
+    margin-top: 5px;
+}
+
+#divCanvas {
+    margin-top: 5px;
+}
+
+#divSend {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 300px;
+    text-align:right;
+}
+
+#buttonSend {
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 100px;
+    height: 40px;
+}
+
+#installButtonDiv {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    width: 300px;
+    display: none;
+}
+
+#installButton {
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 150px;
+    height: 40px;
+}
+
+.elementNumberField {
+    height: 28px;
+    padding-left: 10px;
+    border-radius: 14px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    width: 300px;
+}
+
+input:focus {
+    outline: none !important;
+    border-color: #11c4e0;
+    box-shadow: none;
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #11c4e0;
+    box-shadow: none;
+}
+
+.elementTextField {
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    width: 300px;
+    font-family: Open Sans,sans-serif;
+    font-size: 20px;
+}
+
+#canvas {
+    margin-left: 0px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    width: 300px;
+    background-color: white;
+}
+
+.dropbtn {
+    background-color: white;
+    text-align: left;
+    height: 32px;
+    padding-left: 10px;
+    border-radius: 14px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.dropelement {
+    background-color: white;
+    text-align: left;
+    height: 32px;
+    padding-left: 10px;
+    font-size: 16px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.dropelement-border {
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #11c4e0;
+    border-left: none;
+}
+
+.dropelement-last-border {
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    z-index: 1;
+    border-radius: 14px 14px 14px 14px;
+    border: 1px solid #11c4e0;
+}
+
+.dropdown-contentXX a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+
