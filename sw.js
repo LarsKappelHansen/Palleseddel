@@ -29,6 +29,7 @@ const appShellFiles = [
     './icons/apple-icon-152x152.png',
     './icons/apple-icon-180x180.png',
     './icons/apple-icon-precomposed.png',
+    './icons/eraser-50x50.png',
     './icons/favicon.ico',
     './icons/favicon-16x16.png',
     './icons/favicon-32x32.png',

@@ -196,6 +196,10 @@ function onSelectAndet(selection) {
     andetField.innerHTML = selection;
 }
 
+function eraserButtonClick() {
+    clearCanvas();
+}
+
 
 //*** PWA stuff
 

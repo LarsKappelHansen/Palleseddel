@@ -75,7 +75,23 @@
 }
 
 #divCanvas {
-    margin-top: 5px;
+}
+
+#divSignatureSubSection {
+    width: 100%;
+}
+
+#divSignatureSubSectionText {
+    float: left;
+}
+
+#divSignatureText2{
+    padding-bottom:5px;
+}
+
+#divEraser {
+    width: fit-content;
+    float: right;
 }
 
 #divSend {
@@ -85,7 +101,7 @@
     padding-left: 0px;
     padding-right: 0px;
     width: 300px;
-    text-align:right;
+    text-align: right;
 }
 
 #buttonSend {
@@ -143,12 +159,21 @@ textarea:focus {
     font-size: 20px;
 }
 
+
 #canvas {
     margin-left: 0px;
     border-radius: 10px;
     border: 1px solid lightgray;
     width: 300px;
     background-color: white;
+}
+
+#eraserButton {
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    width: 30px;
+    height: 30px;
 }
 
 .dropbtn {
