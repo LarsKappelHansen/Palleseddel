@@ -34,7 +34,7 @@
         // does the browser support service workers?
         if ('serviceWorker' in navigator) {
         // then register our service worker
-        navigator.serviceWorker.register('./js/sw.js')
+        navigator.serviceWorker.register('./sw.js')
             .then(function (reg) {
             // display a success message
             console.log(`Service Worker Registration (Scope: ${reg.scope})`);
@@ -54,7 +54,7 @@
     <div id="divBody" class ="standardfont">
         <div id="divBodyHeader">
             <div id="divHeader">
-                Palleseddel v0.100
+                Palleseddel v0.101
             </div>
         </div>
         <div id="divBodyBody">
