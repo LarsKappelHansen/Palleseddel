@@ -162,6 +162,41 @@ function clearKommentar() {
 
 function onSend() {
     //Send...
+    openIDB()
+        .then(db => {
+            let request = db.transaction([STORE_NAME], "readonly")
+                .objectStore(STORE_NAME)
+                .openCursor();
+
+            // success!
+            request.onsuccess = function (event) {
+                console.log('request.onsuccess');
+                //// get a handle to the cursor
+                //var cursor = event.target.result;
+                //// do we have a valid cursor?
+                //if (cursor) {
+                //    // add the feedback item to the array
+                //    items.push(cursor.value);
+                //    // move onto the next item in the object store
+                //    cursor.continue();
+                //} else {
+                //    // no valid cursor, so must be at the end
+                //    resolve({ db: db, items: items });
+                //}
+
+            };
+
+            // ugh, error
+            request.onerror = function (event) {
+                console.error(request.error);
+                reject(request.error);
+            }
+        })  // openIDB()
+        .catch((error) => {
+            console.error(request.error);
+            reject(request.error);
+        }); // openIDB()
+
     clearForm();
     refresh();
 }
