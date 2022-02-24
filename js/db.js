@@ -1,7 +1,7 @@
 // IndexedDB DB and Store Properties
-const DB_NAME = 'pwa-news';
+const DB_NAME = 'palleapp-db';
 const DB_VERSION = 1;
-const STORE_NAME = 'feedback';
+const STORE_NAME = 'palleapp-store';
 
 function openIDB() {
   console.log('openIDB()');
