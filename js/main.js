@@ -201,9 +201,8 @@ function onSend() {
 }
 
 function getInput() {
-    var pl11 = document.getElementById("divEurpalle11Number").value;
     var data = {
-        eurpaller11: pl11
+        eurpaller11: document.getElementById("numEurpalle11").value
         //price: 4.99,
         //description: 'A very tasty sandwich',
         //created: new Date().getTime()
