@@ -206,7 +206,7 @@ function getInput() {
         eurpaller11: document.getElementById("numEurpalle11").value,
         eurpaller12: document.getElementById("numEurpalle12").value,
         eurpaller14: document.getElementById("numEurpalle14").value,
-        andet: document.getElementById("buttonAndet").value,
+        andet: document.getElementById("buttonAndet").innerHTML,
         kommentar: document.getElementById("textFieldKommentar").value,
         underskrift: ""
         //price: 4.99,
