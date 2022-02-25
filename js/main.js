@@ -201,13 +201,14 @@ function onSend() {
 }
 
 function getInput() {
+    var pl11 = document.getElementById("divEurpalle11Number").value;
     var data = {
-        eurpaller11: document.getElementById("divEurpalle11Number").value
+        eurpaller11: pl11
         //price: 4.99,
         //description: 'A very tasty sandwich',
         //created: new Date().getTime()
     };
-
+    return data;
 }
 
 function clearForm() {
