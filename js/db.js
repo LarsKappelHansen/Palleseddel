@@ -41,6 +41,21 @@ function openIDB() {
         var theStore = db.createObjectStore(STORE_NAME, storeOptions);
       };
     };
-  });
+    });
 };
+
+function saveData(data) {
+    openIDB()
+        .then(
+        function (db) {
+            var tx = db.transaction(STORE_NAME, 'readwrite');
+            var store = tx.objectStore(STORE_NAME);
+            store.add(data);
+            return tx.complete;
+        }).then(function () {
+            console.log('added item to the store os!');
+        }
+    );
+}
+
 
