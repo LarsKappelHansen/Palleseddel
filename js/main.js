@@ -158,9 +158,8 @@ function clearKommentar() {
     palleField.value = '';
 }
 
-
-
 function onSend() {
+    var data = getInput();
     //Send...
     openIDB()
         .then(db => {
@@ -199,6 +198,16 @@ function onSend() {
 
     clearForm();
     refresh();
+}
+
+function getInput() {
+    var data = {
+        eurpaller11: document.getElementById("divEurpalle11Number").value
+        //price: 4.99,
+        //description: 'A very tasty sandwich',
+        //created: new Date().getTime()
+    };
+
 }
 
 function clearForm() {

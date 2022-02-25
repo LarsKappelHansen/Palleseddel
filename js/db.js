@@ -36,7 +36,7 @@ function openIDB() {
         // no? Then create it
         console.log(`openIDB: Creating store ${STORE_NAME}`);
         // first create the configuration options for the store
-        var storeOptions = { keyPath: "idx", autoIncrement: true };
+        var storeOptions = { keyPath: "id", autoIncrement: true };
         // then create the store
         var theStore = db.createObjectStore(STORE_NAME, storeOptions);
       };
