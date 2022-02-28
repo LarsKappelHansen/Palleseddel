@@ -210,7 +210,7 @@ function getInput() {
         andet: document.getElementById("buttonAndet").innerHTML,
         kommentar: document.getElementById("textFieldKommentar").value,
         underskrift: signature.toDataURL(),
-        created: Date.now()
+        created: Date.now().toDateString()
         //price: 4.99,
         //description: 'A very tasty sandwich',
         //created: new Date().getTime()
