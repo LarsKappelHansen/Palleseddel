@@ -3,7 +3,7 @@ function onresize() {
     refresh();
 }
 
-var lastCanvasWidth = 0;
+var lastSignatureWidth = 0;
 
 function refresh() {
     //var viewWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -20,10 +20,10 @@ function refresh() {
     setWidth('elementTextField', (viewWidth - viewPaddings - elementLeftMargin - 14));
     setWidth('dropbtn', (viewWidth - viewPaddings));
     setWidth('dropelement', (viewWidth - viewPaddings - 2));
-    var canvasWidth = viewWidth - viewPaddings - elementLeftMargin;
-    if (canvasWidth != lastCanvasWidth) {
-        setCanvasWidth(canvasWidth);
-        lastCanvasWidth = canvasWidth;
+    var signatureWidth = viewWidth - viewPaddings - elementLeftMargin;
+    if (signatureWidth != lastSignatureWidth) {
+        setsignatureWidth(signatureWidth);
+        lastSignatureWidth = signatureWidth;
     }
     SetSendButtonPosition(viewWidth - viewPaddings);
 
@@ -36,9 +36,9 @@ function setWidth(className, width) {
     }
 }
 
-function setCanvasWidth(width) {
-    canvas.width = 2 * width;
-    canvas.style = 'width: ' + width + 'px; height: 200px';
+function setsignatureWidth(width) {
+    signature.width = 2 * width;
+    signature.style = 'width: ' + width + 'px; height: 200px';
 }
 
 function SetSendButtonPosition(width) {
@@ -47,30 +47,30 @@ function SetSendButtonPosition(width) {
 }
 
 // create canvas element and append it to document body
-var canvas = document.getElementById("canvas");
+var signature = document.getElementById("signature");
 
 // get canvas 2D context and set him correct size
-var canvasContext = canvas.getContext('2d');
+var signatureContext = signature.getContext('2d');
 
-const canvasState = {
+const signatureState = {
     mousedown: false
 };
 
 // last known position
-var canvasPos = { x: 0, y: 0 };
+var signaturePos = { x: 0, y: 0 };
 
 
-canvas.addEventListener('mousedown', handleWritingStart);
-canvas.addEventListener('mousemove', handleWritingInProgress);
-canvas.addEventListener('mouseup', handleDrawingEnd);
-canvas.addEventListener('mouseout', handleDrawingEnd);
+signature.addEventListener('mousedown', handleWritingStart);
+signature.addEventListener('mousemove', handleWritingInProgress);
+signature.addEventListener('mouseup', handleDrawingEnd);
+signature.addEventListener('mouseout', handleDrawingEnd);
 
-canvas.addEventListener('touchstart', handleWritingStart);
-canvas.addEventListener('touchmove', handleWritingInProgress);
-canvas.addEventListener('touchend', handleDrawingEnd);
+signature.addEventListener('touchstart', handleWritingStart);
+signature.addEventListener('touchmove', handleWritingInProgress);
+signature.addEventListener('touchend', handleDrawingEnd);
 
 function handleWritingStart(e) {
-    if (!canvasFullyVisible()) {
+    if (!signatureFullyVisible()) {
         return;
     }
 
@@ -80,41 +80,41 @@ function handleWritingStart(e) {
 
     setPosition(e);
 
-    canvasContext.beginPath(); // begin
+    signatureContext.beginPath(); // begin
 
-    canvasContext.moveTo(canvasPos.x, canvasPos.y);
+    signatureContext.moveTo(signaturePos.x, signaturePos.y);
 
-    canvasContext.lineWidth = 3;
-    canvasContext.lineCap = 'round';
-    canvasContext.strokeStyle = 'black';
+    signatureContext.lineWidth = 3;
+    signatureContext.lineCap = 'round';
+    signatureContext.strokeStyle = 'black';
 
-    canvasState.mousedown = true;
+    signatureState.mousedown = true;
 }
 
-function canvasFullyVisible() {
-    return (window.scrollY + window.innerHeight) >= (canvas.offsetTop + canvas.offsetHeight);
+function signatureFullyVisible() {
+    return (window.scrollY + window.innerHeight) >= (signature.offsetTop + signature.offsetHeight);
     //console.log("window.scrollY " + window.scrollY);
     //console.log("window.innerHeight " + window.innerHeight);
-    //console.log("canvas.offsetHeight " + canvas.offsetHeight);
+    //console.log("signature.offsetHeight " + signature.offsetHeight);
     //console.log("window.scrollY + window.innerHeight " + (window.scrollY + window.innerHeight));
-    //console.log("canvas.offsetTop  + canvas.offsetHeight " + );
+    //console.log("signature.offsetTop  + signature.offsetHeight " + );
 }
 
 function handleWritingInProgress(e) {
     e.preventDefault();
 
-    if (canvasState.mousedown) {
+    if (signatureState.mousedown) {
         setPosition(e);
-        canvasContext.lineTo(canvasPos.x, canvasPos.y); // to
+        signatureContext.lineTo(signaturePos.x, signaturePos.y); // to
 
-        canvasContext.stroke(); // draw it!
+        signatureContext.stroke(); // draw it!
     }
 }
 
 function handleDrawingEnd(e) {
     e.preventDefault();
 
-    canvasState.mousedown = false;
+    signatureState.mousedown = false;
 
 
 }
@@ -122,19 +122,19 @@ function handleDrawingEnd(e) {
 // new position from mouse event
 function setPosition(e) {
 
-    var rect = canvas.getBoundingClientRect(), // abs. size of element
-        scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for X
-        scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for Y
+    var rect = signature.getBoundingClientRect(), // abs. size of element
+        scaleX = signature.width / rect.width,    // relationship bitmap vs. element for X
+        scaleY = signature.height / rect.height;  // relationship bitmap vs. element for Y
 
     var clientX = e.clientX || e.touches[0].clientX;
     var clientY = e.clientY || e.touches[0].clientY;
 
-    canvasPos.x = (clientX - rect.left) * scaleX;
-    canvasPos.y = (clientY - rect.top) * scaleY;
+    signaturePos.x = (clientX - rect.left) * scaleX;
+    signaturePos.y = (clientY - rect.top) * scaleY;
 }
 
-function clearCanvas() {
-    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+function clearSignature() {
+    signatureContext.clearRect(0, 0, signature.width, signature.height);
 }
 
 function clearPaller() {
@@ -202,13 +202,14 @@ function onSend() {
 }
 
 function getInput() {
+
     var data = {
         eurpaller11: document.getElementById("numEurpalle11").value,
         eurpaller12: document.getElementById("numEurpalle12").value,
         eurpaller14: document.getElementById("numEurpalle14").value,
         andet: document.getElementById("buttonAndet").innerHTML,
         kommentar: document.getElementById("textFieldKommentar").value,
-        underskrift: canvas.toDateURL()
+        underskrift: signature.toDateURL()
         //datotid: Date.now()
         //price: 4.99,
         //description: 'A very tasty sandwich',
@@ -221,7 +222,7 @@ function clearForm() {
     clearPaller();
     clearAndet();
     clearKommentar();
-    clearCanvas()
+    clearSignature()
 }
 
 function buttonAndetClick() {
@@ -248,7 +249,7 @@ function onSelectAndet(selection) {
 }
 
 function eraserButtonClick() {
-    clearCanvas();
+    clearSignature();
 }
 
 
