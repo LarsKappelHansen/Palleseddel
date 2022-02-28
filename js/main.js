@@ -209,8 +209,8 @@ function getInput() {
         eurpaller14: document.getElementById("numEurpalle14").value,
         andet: document.getElementById("buttonAndet").innerHTML,
         kommentar: document.getElementById("textFieldKommentar").value,
-        underskrift: signature.toDataURL()
-        //datotid: Date.now()
+        underskrift: signature.toDataURL(),
+        created: Date.now()
         //price: 4.99,
         //description: 'A very tasty sandwich',
         //created: new Date().getTime()
